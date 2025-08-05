@@ -7,6 +7,7 @@
 
 import Button from "../components/Button";
 import MenuBar from "../components/MenuBar";
+import { motion } from "motion/react";
 
 const Home = () => {
     return(
@@ -15,9 +16,15 @@ const Home = () => {
                 <MenuBar />             {/* メニューバー */}
                 
                 {/* カード内要素 */}
-                <div className="card-container" style={{backgroundColor: `rgba(var(--sub-color-rgb), 0.2)`}}>
+                <div
+                    className="card-container" 
+                    style={{backgroundColor: `rgba(var(--sub-color-rgb), 0.2)`}}
+                >
                     {/* 名前 */}
-                    <div className="flex justify-center items-center w-fit">
+                    <motion.div
+                        className="flex justify-center items-center w-fit"
+                        transition={{duration:0.5}} whileHover={{ scale:1.3 }}
+                    >
                         <div id="familyName" className="flex flex-col items-center mr-4">
                             <p className="page-title">北川</p>
                             <p className="text-gray-400 text-xl mt-2">Kitagawa</p>
@@ -26,13 +33,16 @@ const Home = () => {
                             <p className="page-title">華希</p>
                             <p className="text-gray-400 text-xl mt-2">Haruki</p>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* 所属 */}
-                    <div className="text-xl text-gray-500 mt-12 flex flex-col items-center gap-1">
+                    <motion.div 
+                        className="text-xl text-gray-500 mt-12 flex flex-col items-center gap-1"
+                        transition={{duration:0.5}} whileHover={{ scale:1.1 }}
+                    >
                         <p>ECCコンピュータ専門学校</p>
                         <p>高度情報処理研究学科 IT開発エキスパートコース</p>
-                    </div>
+                    </motion.div>
                      <section className="w-full flex justify-center absolute bottom-2 ">
                         <Button label={"作品を見る"} path={"/workList"} isMenu={true} />
                     </section>
